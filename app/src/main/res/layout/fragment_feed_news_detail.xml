@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="articleItem"
+            type="com.vsee.news.domain.features.news.model.ArticleItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/toolbarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dark_blue"
+                android:visibility="visible"
+                app:contentInsetStart="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btnBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_arrow_back" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_default"
+                        android:fontFamily="@font/proximanova_bold"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_title_size"
+                        android:text="@{articleItem.title}"
+                        android:lines="1"
+                        android:ellipsize="marquee"
+                        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btnBack"
+                        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ImageView
+            android:id="@+id/ivFeed"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_feed_item"
+            android:layout_margin="@dimen/margin_default"
+            app:imageUrl="@{articleItem.urlToImage}"
+            app:placeholder="@{@drawable/ic_place_holder}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarContainer"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/tvDetailn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivFeed"
+            android:fontFamily="@font/proximanova_regular"
+            android:layout_margin="@dimen/margin_default"
+            android:textSize="@dimen/text_news_description_size"
+            android:textColor="@color/black"
+            android:text="@{articleItem.description}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

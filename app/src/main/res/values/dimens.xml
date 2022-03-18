@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin_default">10dp</dimen>
+    <dimen name="width_feed_item">110dp</dimen>
+    <dimen name="height_feed_item">150dp</dimen>
+
+<!--    text size-->
+    <dimen name="text_title_size">18sp</dimen>
+    <dimen name="text_news_title_size">14sp</dimen>
+    <dimen name="text_news_description_size">14sp</dimen>
+    <dimen name="text_news_time_size">12sp</dimen>
+</resources>
