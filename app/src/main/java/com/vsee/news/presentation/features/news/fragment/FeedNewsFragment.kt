@@ -66,6 +66,7 @@ class FeedNewsFragment : BaseFragment(), FeedItemClickListener {
 
     private fun handleCallBack() {
         viewModel.listArticleItem.observe(viewLifecycleOwner) { articleData ->
+            android.util.Log.e("TEST_DATA","listArticleItem= $it")
             binding.srFeedNews.isRefreshing = false
             viewModel.isShowProgress.value = false
                 feedAdapter?.let { adapter ->
