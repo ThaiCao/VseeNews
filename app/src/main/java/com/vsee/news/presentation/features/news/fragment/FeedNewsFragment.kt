@@ -77,6 +77,7 @@ class FeedNewsFragment : BaseFragment(), FeedItemClickListener {
 
         viewModel.errorText.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            android.util.Log.e("TEST_DATA","errorText= $it")
         }
         viewModel.isShowProgress.observe(viewLifecycleOwner) {
             binding.vProgress.visibility = if(it) View.VISIBLE else View.GONE
